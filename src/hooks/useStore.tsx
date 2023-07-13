@@ -21,6 +21,8 @@ function reducer(state: State,action: Action){
     const { type  } = action
 
     if(type === 'INTERCHANGE_LANGUAGE'){
+      //Logica dek estado dentro del reducer
+      if(state.fromLanguage === 'auto') return state
       return{
         ...state,
         fromLanguage: state.toLanguage,
@@ -112,3 +114,4 @@ export function useStore(){
 
     
 }
+
