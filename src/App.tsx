@@ -16,14 +16,20 @@ import { LanguageSelector } from './components/LanguageSelector';
 
 function App () {
 
-  const { fromLanguage, setFromLanguaje,interchangeLanguages,setToLanguage} = useStore();
+  const { fromLanguage,toLanguage, setFromLanguaje,interchangeLanguages,setToLanguage} = useStore();
   return (
     <Container fluid>
         <h1>Google Translate </h1>
         <Row>
           <Col>
-            <LanguageSelector onChange={setFromLanguaje}/>
+            <LanguageSelector
+            type='from'
+            value={fromLanguage}
+            onChange={setFromLanguaje}
+            />
+            {fromLanguage}
           </Col>
+
           <Col>
             <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}>
                 <ArrowIcon/>
@@ -31,7 +37,12 @@ function App () {
           </Col>
 
           <Col>
-            <LanguageSelector onChange={setToLanguage}/>
+            <LanguageSelector 
+            type='to'
+            value={toLanguage}
+            onChange={setToLanguage}
+            />
+              {toLanguage}
           </Col>
 
         </Row>
