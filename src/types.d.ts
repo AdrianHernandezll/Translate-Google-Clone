@@ -1,3 +1,8 @@
+import { SUPPORTED_LANGUAGES } from "./constants"
+
+export type Language = keyof typeof SUPPORTED_LANGUAGES
+
+
 export type State = {
   fromLanguage: string,
   toLanguage: string,
